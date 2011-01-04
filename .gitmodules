@@ -4,3 +4,6 @@
 [submodule "deps/connect"]
 	path = deps/connect
 	url = https://github.com/senchalabs/connect.git
+[submodule "deps/qunit"]
+	path = deps/qunit
+	url = https://github.com/jquery/qunit.git
