@@ -1,0 +1,6 @@
+[submodule "deps/sharedjs"]
+	path = deps/sharedjs
+	url = git@github.com:kof/sharedjs.git
+[submodule "deps/connect"]
+	path = deps/connect
+	url = https://github.com/senchalabs/connect.git
