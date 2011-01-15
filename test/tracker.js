@@ -2,6 +2,10 @@ module = QUnit.module;
 
 module('tracker');
 
+
+// don't show alerts
+ams.options.verbose = false;
+
 test('tracked dependencies 1', function() {
 
 	function transport() {

@@ -1,8 +1,10 @@
-test: transport tracker
+testall: transport tracker utils deps
 
 transport:
 	qunit -c ./lib/processors/transport.js -t ./test/transport.js
-tracker:	
-	qunit -c ./lib/tracker.js -t ./test/tracker.js -d ./test/tracker-mock.js --cov false
+utils:
+	qunit -c ./lib/utils.js -t ./test/utils.js
+deps:
+	qunit -d ./test/mocks/deps.js -c ./lib/deps.js -t ./test/deps.js 	
 	
-.PHONY: test
+.PHONY: test transport tracker utils deps
