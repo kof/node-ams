@@ -1,1 +1,2 @@
-module.exports = require("lib/ams");
+exports.build = require('./lib/build');
+exports.server = require('./lib/server');
