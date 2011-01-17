@@ -10,3 +10,6 @@
 [submodule "deps/natives"]
 	path = deps/natives
 	url = git@github.com:kof/node-natives.git
+[submodule "deps/uglifyjs"]
+	path = deps/uglifyjs
+	url = https://github.com/mishoo/UglifyJS.git
