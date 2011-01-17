@@ -13,3 +13,6 @@
 [submodule "deps/uglifyjs"]
 	path = deps/uglifyjs
 	url = https://github.com/mishoo/UglifyJS.git
+[submodule "deps/yuicompressor"]
+	path = deps/yuicompressor
+	url = https://github.com/stoyan/yuicompressor.git
