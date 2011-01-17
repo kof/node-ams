@@ -6,15 +6,16 @@ and performance in the client are really important.
 
 
 ## Features
-- depenencies autodetection  (learning mode)
+- depenencies autodetection (experimental - in learning mode)
+- static dependencies detection (looks for commonjs require calls)
 - custom preprocessing
   - minify js
   - minify css
   - wrap for transport
-  - auto merge using detected dependencies
+  - add vendor css prefixes
   - add your own preprocessor ...
 - static file server 
   - caching (server and client)
   - cache invalidation (server and client)
-  - setting response headers
+  - setting correct response headers
   - serving files
