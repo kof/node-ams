@@ -1,7 +1,8 @@
-module = QUnit.module;
+var join = require('path').join;
 
-module('tracker-server');
+
+QUnit.module('server');
 
 test('merge information', function() {
-    // a on c&d and b on c&d => c&d = cd 
+    start({root: join(__dirname, 'fixtures', 'server')}); 
 });
