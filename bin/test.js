@@ -3,6 +3,8 @@ var qunit = require('qunit'),
     test = join(__dirname, '..', 'test'),
     lib = join(__dirname, '..', 'lib');
 
+qunit.options.coverage = false;
+
 qunit.run([
     {
         code: lib + '/utils.js',

@@ -1,0 +1,1 @@
+exports.info = 'b.js';

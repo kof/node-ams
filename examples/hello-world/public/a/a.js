@@ -1,0 +1,1 @@
+require.def("a/a",["require","exports","module"],function(a,b,c){b.info="a.js"})
