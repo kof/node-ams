@@ -2,17 +2,18 @@ QUnit.module('deps');
 
 var join = require('path').join;
 
-test('require parser', 6, function() {
-    same( _parse('require("test")'), {"test": true}, "simple require, double quots" );   
-    same( _parse("require('test')"), {"test": true}, "simple require, single quots" );    
-    same( _parse(" require ( 'test' ) "), {"test": true}, "simple require, with spaces" );    
-    same( _parse("require('test/test-test')"), {"test/test-test": true}, "simple require, with special chars" );
+test('require parser', 7, function() {
+    same( parse('require("test")'), {"test": true}, "double quots" );   
+    same( parse("require('test')"), {"test": true}, "single quots" );    
+    same( parse(" require ( 'test' ) "), {"test": true}, "with spaces" );    
+    same( parse("require('test/test-test')"), {"test/test-test": true}, "with special chars" );
     same( 
-        _parse("require('test'); function test() { test() } require(\"test1\")"),
+        parse("require('test'); function test() { test() } require(\"test1\")"),
         {test: true, test1: true},
-        "simple require, more real live code" 
+        "more real live code" 
     );    
-    same( _parse('require(test);require("fui")'), {fui: true}, "simple require, take only if a string was passed" );   
+    same( parse('require(test);require("fui")'), {fui: true}, "take only if a string was passed" );   
+    same( parse('require("fui")', true), ['fui'], "return array" );   
 });
 
 test('find dependencies', function() {
