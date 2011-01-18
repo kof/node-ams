@@ -11,11 +11,32 @@ qunit.run([
         tests: test + '/utils.js'
     },
     {
-        code: lib + '/processors/transport.js',
-        tests: test + '/transport.js'
-    },
-    {
         code: lib + '/deps.js',
         tests: test + '/deps.js'
-    }     
+    },
+    {
+        code: lib + '/build.js',
+        tests: test + '/build.js'
+    },
+    {
+        code: lib + '/processors/vendorcss.js',
+        tests: test + '/vendorcss.js'
+    },
+    {
+        code: lib + '/processors/uglifyjs.js',
+        tests: test + '/uglifyjs.js'
+    },    
+    {
+        code: lib + '/processors/transport.js',
+        tests: test + '/transport.js'
+    },    
+    {
+        code: lib + '/processors/placeholder.js',
+        tests: test + '/placeholder.js'
+    },
+    {
+        code: lib + '/processors/cssmin.js',
+        tests: test + '/cssmin.js'
+    },    
+      
 ]);
