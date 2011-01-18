@@ -1,4 +1,6 @@
-body {
+div {
     font-size: 20px;
     font-family: Verdana;
-}
+    box-shadow: 10px 10px 10px #000;
+}    
+
