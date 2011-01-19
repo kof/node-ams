@@ -38,5 +38,9 @@ qunit.run([
         code: lib + '/processors/cssmin.js',
         tests: test + '/cssmin.js'
     },    
+    {
+        code: lib + '/processors/dataimg.js',
+        tests: test + '/dataimg.js'
+    },    
       
 ]);

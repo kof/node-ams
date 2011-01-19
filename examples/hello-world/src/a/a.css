@@ -1,9 +1,13 @@
+body {
+    background: url(/ape.jpg) no-repeat right top;
+}
+
 div {
     font-size: 20px;
     font-family: Verdana;
     box-shadow: 10px 10px 10px #000;
     float: left;
-    height: 500px;
-    background: url("/ape.jpg") no-repeat left bottom;
+    height: 200px;
+    background: url("/sample.png") no-repeat center;
 }    
 
