@@ -16,6 +16,3 @@
 [submodule "deps/yuicompressor"]
 	path = deps/yuicompressor
 	url = https://github.com/stoyan/yuicompressor.git
-[submodule "deps/JSCSSP"]
-	path = deps/JSCSSP
-	url = https://github.com/NV/JSCSSP.git
