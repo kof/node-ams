@@ -10,8 +10,7 @@ in the client. You just write your code like server side in nodejs.
 
 
 ## Features
-- 
-- static dependencies detection (looks for commonjs require calls)
+- static dependencies detection (looks for commonjs 'require' calls)
 - depenencies autodetection (experimental - in learning mode)
 - custom preprocessing
   - minify js
