@@ -1,24 +1,23 @@
 QUnit.module('deps');
 
 var join = require('path').join;
+var root = join(__dirname, 'fixtures', 'deps');
 
 test('require parser', 7, function() {
-    same( parse('require("test")'), {"test": true}, "double quots" );   
-    same( parse("require('test')"), {"test": true}, "single quots" );    
-    same( parse(" require ( 'test' ) "), {"test": true}, "with spaces" );    
+    same( parse('require("test")'), {"test": true}, "double quots" );
+    same( parse("require('test')"), {"test": true}, "single quots" );
+    same( parse(" require ( 'test' ) "), {"test": true}, "with spaces" );
     same( parse("require('test/test-test')"), {"test/test-test": true}, "with special chars" );
     same( 
-        parse("require('test'); function test() { test() } require(\"test1\")"),
+        parse("require('test');function test() { test() } require(\"test1\")"),
         {test: true, test1: true},
         "more real live code" 
-    );    
-    same( parse('require(test);require("fui")'), {fui: true}, "take only if a string was passed" );   
-    same( parse('require("fui")', true), ['fui'], "return array" );   
+    );
+    same( parse('require(test);require("fui")'), {fui: true}, "take only if a string was passed" );
+    same( parse('require("fui")', true), ['fui'], "return array" );
 });
 
 test('find dependencies', function() {
-    var root = join(__dirname, 'fixtures', 'deps');
-
     same(
         find(root+'/1/a.js'),
         [root + '/1/a.js', root + '/1/b.js'],
@@ -41,12 +40,19 @@ test('find dependencies', function() {
         find(root+'/3/1/a.js'),
         [root + '/3/1/a.js', root + '/3/b.js'],
         'deps test 4, a->b'
-    );  
+    );
     
     same(
         find(root+'/4/c.js'),
         [root + '/4/c.js', root + '/4/1/a.js', root + '/4/b.js'],
         'deps test 4, c->a->b'
-    );  
+    );
+});
 
+test('add paths', function() {
+    same(
+        find(root+'/paths/b/b.js', [root+'/paths/a']),
+        [root+'/paths/b/b.js', root+'/paths/a/a.js'],
+        'using paths array, b->a'
+    );
 });
