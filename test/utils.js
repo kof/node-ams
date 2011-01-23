@@ -52,24 +52,20 @@ test('copySync', 1, function() {
        src = n.path.join(fixtures, 'utils'); 
     
    try {
-       stop();
-       copy(src, target, function() {
-           try {
-               n.fs.statSync(target + '/a.js');
-               n.fs.statSync(target + '/b.js');
-               n.fs.statSync(target + '/a/c.js');
-               ok(true, 'dir '+src+' was copied');
-           } catch(e) {
-               ok(false, 'dir '+src+' was copied');
-           }
-           // cleanup
-           n.fs.unlinkSync(target + '/a.js');
-           n.fs.unlinkSync(target + '/b.js');
-           n.fs.unlinkSync(target + '/a/c.js');
-           n.fs.rmdirSync(target + '/a');
-           start();
-       });
+       copySync(src, target);
+       n.fs.statSync(target + '/a.js');
+       n.fs.statSync(target + '/b.js');
+       n.fs.statSync(target + '/a/c.js');
+       // cleanup
+       n.fs.unlinkSync(target + '/a.js');
+       n.fs.unlinkSync(target + '/b.js');
+       n.fs.unlinkSync(target + '/a/c.js');
+       n.fs.rmdirSync(target + '/a');
+
+       ok(true, 'dir '+src+' was copied');
    } catch(e) {
+       console.error(e);
        ok(false, 'dir '+src+' was copied');
    }
 });
+    
