@@ -1,2 +1,2 @@
-require('1/b');
-a.js
+require('./1/b');
+2/a.js

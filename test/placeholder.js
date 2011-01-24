@@ -3,12 +3,8 @@ QUnit.module('placeholder');
 test('replace placeholder in code', 1, function() {
     var code = '{VER} exports.test = 123;\n var test = "test";\n {COPYRIGHT}',
         o = {
-            processors: {
-                placeholder: {
-                    'VER': '0.1.2',
-                    'COPYRIGHT': 'some text'
-                }
-            }
+            'VER': '0.1.2',
+            'COPYRIGHT': 'some text'
         };
         
     equal(

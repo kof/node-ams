@@ -7,7 +7,7 @@ var fixtures = n.path.join(__dirname, 'fixtures');
 test('findSync', 3, function() {
    var root = n.path.join(fixtures, 'utils');
 
-   same( findSync(root), [root + '/a', root + '/a.js', root + '/b.js'], 'no regexp no rec');
+   same( findSync(root), [root + '/a.js', root + '/b.js'], 'no regexp no rec');
    same( 
        findSync(root, /\.js$/), 
        [root + '/a.js', root + '/b.js'], 
