@@ -2,11 +2,7 @@ QUnit.module('transport');
 
 test('correct transport wrapping', 2, function() {
     var context = {
-            options: {
-                find: {
-                    root: '/'
-                }
-            }  
+            paths: ['/']
         };
 
     equal(
@@ -15,7 +11,7 @@ test('correct transport wrapping', 2, function() {
         'transport text is correct'  
     );
     
-    context.options.find.root = '/fui/fui/fui/';
+    context.paths = ['/fui/fui/fui/'];
 
     equal(
         run.call(context, '/fui/fui/fui/test/test.js', 'exports.test = 123;'),

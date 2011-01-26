@@ -6,11 +6,7 @@ var sample = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9h
 
 test('simple', 3, function() {
     var context = {
-            options: {
-                find: {
-                    root: fixtures
-                }    
-            },
+            root: fixtures,
             data: {}
         },
         o = {

@@ -6,12 +6,11 @@ var n = require('../deps/natives'),
 QUnit.module('build');
 
 test('functional build test with all options enabled', function() {
-    find({
-        root: fixtures        
-    })
-    .process()
-    .combine()
-    .write(tmp);
+    build(fixtures)
+        .find()
+        .process()
+        .combine()
+        .write(tmp);
     ok(true, 'functional test worked');
 });
 
