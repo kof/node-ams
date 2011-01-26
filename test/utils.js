@@ -1,6 +1,6 @@
 QUnit.module('utils');
 
-var n = require('../deps/natives');
+var n = require('natives');
 
 var fixtures = n.path.join(__dirname, 'fixtures');
 

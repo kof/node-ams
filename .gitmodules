@@ -1,18 +1,3 @@
-[submodule "deps/sharedjs"]
-	path = deps/sharedjs
-	url = git@github.com:kof/sharedjs.git
-[submodule "deps/connect"]
-	path = deps/connect
-	url = https://github.com/senchalabs/connect.git
-[submodule "deps/qunit"]
-	path = deps/qunit
-	url = https://github.com/jquery/qunit.git
-[submodule "deps/natives"]
-	path = deps/natives
-	url = git@github.com:kof/node-natives.git
-[submodule "deps/uglifyjs"]
-	path = deps/uglifyjs
-	url = https://github.com/mishoo/UglifyJS.git
 [submodule "deps/yuicompressor"]
 	path = deps/yuicompressor
 	url = https://github.com/stoyan/yuicompressor.git
