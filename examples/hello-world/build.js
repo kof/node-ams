@@ -9,6 +9,7 @@ ams.build.find({
     })
     .process()
     .combine({
-        js: publ + '/main.js'
+        js: 'main.js'
     })
-    .write(publ);
+    .write(publ)
+    .end();

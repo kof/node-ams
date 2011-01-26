@@ -10,7 +10,8 @@ test('simple', 3, function() {
                 find: {
                     root: fixtures
                 }    
-            }
+            },
+            data: {}
         },
         o = {
             maxSize: 32768
