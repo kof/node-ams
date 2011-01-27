@@ -7,7 +7,7 @@ test('correct transport wrapping', 2, function() {
 
     equal(
         run.call(context, '/test/test.js', 'exports.test = 123;'),
-        ';require.def("test/test", ["require", "exports", "module"], function(require, exports, module) {\nexports.test = 123;\n});\n',
+        ';define("test/test", ["require", "exports", "module"], function(require, exports, module) {\nexports.test = 123;\n});\n',
         'transport text is correct'  
     );
     
@@ -15,7 +15,7 @@ test('correct transport wrapping', 2, function() {
 
     equal(
         run.call(context, '/fui/fui/fui/test/test.js', 'exports.test = 123;'),
-        ';require.def("test/test", ["require", "exports", "module"], function(require, exports, module) {\nexports.test = 123;\n});\n',
+        ';define("test/test", ["require", "exports", "module"], function(require, exports, module) {\nexports.test = 123;\n});\n',
         'root was applied correctly'  
     ); 
 });

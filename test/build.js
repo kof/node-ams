@@ -1,4 +1,4 @@
-var n = require('../deps/natives'),
+var n = require('natives'),
     fixtures = __dirname + '/fixtures/build',
     tmp = __dirname + '/tmp',
     target = tmp + '/main.js';
