@@ -19,16 +19,16 @@ qunit.run([
         tests: test + '/build.js'
     },
     {
-        code: lib + '/processors/vendorcss.js',
-        tests: test + '/vendorcss.js'
+        code: lib + '/processors/cssvendor.js',
+        tests: test + '/cssvendor.js'
     },
     {
         code: lib + '/processors/uglifyjs.js',
         tests: test + '/uglifyjs.js'
     },    
     {
-        code: lib + '/processors/transport.js',
-        tests: test + '/transport.js'
+        code: lib + '/processors/jstransport.js',
+        tests: test + '/jstransport.js'
     },    
     {
         code: lib + '/processors/placeholder.js',
@@ -39,8 +39,12 @@ qunit.run([
         tests: test + '/cssmin.js'
     },    
     {
-        code: lib + '/processors/dataimg.js',
-        tests: test + '/dataimg.js'
+        code: lib + '/processors/cssdataimg.js',
+        tests: test + '/cssdataimg.js'
+    },    
+    {
+        code: lib + '/processors/cssimport.js',
+        tests: test + '/cssimport.js'
     },    
       
 ]);
