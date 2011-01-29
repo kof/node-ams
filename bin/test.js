@@ -46,5 +46,8 @@ qunit.run([
         code: lib + '/processors/cssimport.js',
         tests: test + '/cssimport.js'
     },    
-      
+    {
+        code: lib + '/processors/csscdn.js',
+        tests: test + '/csscdn.js'
+    },    
 ]);

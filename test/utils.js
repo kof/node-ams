@@ -2,74 +2,67 @@ QUnit.module('utils');
 
 var n = require('natives');
 
-var fixtures = n.path.join(__dirname, 'fixtures');
+var fixtures = __dirname + '/fixtures/utils';
 
-var tmp = n.path.join(__dirname, 'tmp');
+var tmp = __dirname + '/tmp';
 
-test('findSync', 3, function() {
-   var root = fixtures + '/utils';
+test('findSync', function() {
 
-   same( findSync(root), [root + '/a', root + '/a.js', root + '/b.js'], 'no regexp no rec');
+   same( findSync(fixtures), [fixtures + '/a', fixtures + '/a.js', fixtures + '/b.js'], 'no regexp no rec');
+   
    same( 
-       findSync(root, /\.js$/), 
-       [root + '/a.js', root + '/b.js'], 
+       findSync(fixtures, /\.js$/), 
+       [fixtures + '/a.js', fixtures + '/b.js'], 
        'regexp for js files only, no rec'
    );
    
    same( 
-       findSync(root, /\.js$/, true), 
-       [root + '/a/c.js', root + '/a.js', root + '/b.js'], 
+       findSync(fixtures, /\.js$/, true), 
+       [fixtures + '/a/c.js', fixtures + '/a.js', fixtures + '/b.js'], 
        'regexp for js files only, recursively'
    );    
 });
 
-test('mkdirSync', 2, function() {
-    var dir1 = tmp + '/test';
-    
-    try {
-        mkdirSync(dir1);
-        n.fs.statSync(dir1);
-        ok(true, 'dir '+dir1+' was created');
-    } catch(e) {
-        ok(false, 'create '+dir1+' failed');
-    }
+test('mkdirSync', function() {
+    var dir = tmp + '/test';
+    mkdirSync(dir);
+    n.fs.statSync(dir);
+    ok(true, 'dir '+dir+' was created');
 
-    var dir2 = tmp + '/test/test';
-
-    try {
-        mkdirSync(dir2);
-        n.fs.statSync(dir2);
-        ok(true, 'dir '+dir2+' was created');
-    } catch(e) {
-        ok(false, 'create '+dir2+' failed');
-    }    
-    
+    dir = tmp + '/test/test';
+    mkdirSync(dir);
+    n.fs.statSync(dir);
+    ok(true, 'dir '+dir+' was created');
 });
 
 test('copySync', 1, function() {
-   
-   var src = fixtures + '/utils'; 
-    
-   try {
-       copySync(src, tmp);
-       n.fs.statSync(tmp + '/a.js');
-       n.fs.statSync(tmp + '/b.js');
-       n.fs.statSync(tmp + '/a/c.js');
-       ok(true, 'dir '+src+' was copied');
-   } catch(e) {
-       console.error(e);
-       ok(false, 'dir '+src+' was copied');
-   }
+   copySync(fixtures, tmp);
+   n.fs.statSync(tmp + '/a.js');
+   n.fs.statSync(tmp + '/b.js');
+   n.fs.statSync(tmp + '/a/c.js');
+   ok(true, 'dir '+fixtures+' was copied');
 });
 
 test('rmSync', function(){
-   var done = false; 
+   rmSync(tmp);
+   ok(true, 'all files removed');
+});
 
-   try {
-       rmSync(tmp);
-       done = true; 
-   } catch(e) {
-       console.error(e);
-   }
-   ok(done, 'all files removed');
+test('resolvePath', function(){
+    var res;
+    
+    res = resolvePath('/a.js', null, fixtures);    
+    equal(res, fixtures + '/a.js', 'abs path');
+    
+    res = resolvePath('./b.js', fixtures + '/a.js');    
+    equal(res, fixtures + '/b.js', 'relative path');
+    
+    res = resolvePath('../a.js', fixtures+'/a/c.js');    
+    equal(res, fixtures + '/a.js', 'relative path');
+    
+    res = resolvePath('a.js', null, null, [fixtures]);    
+    equal(res, fixtures + '/a.js', 'path from lookup array');
+
+    res = resolvePath('http://nodejs.org/a.js');    
+    equal(res, false, 'remote url cant be resolved');
 });
