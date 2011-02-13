@@ -47,7 +47,15 @@ qunit.run([
         tests: test + '/cssimport.js'
     },    
     {
-        code: lib + '/processors/csscdn.js',
-        tests: test + '/csscdn.js'
+        code: lib + '/processors/cssabspath.js',
+        tests: test + '/cssabspath.js'
+    },  
+    {
+        code: lib + '/processors/htmlabspath.js',
+        tests: test + '/htmlabspath.js'
+    },  
+    {
+        code: lib + '/processors/texttransport.js',
+        tests: test + '/texttransport.js'
     },    
 ]);

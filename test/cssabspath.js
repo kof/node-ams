@@ -1,8 +1,8 @@
 var n = require('natives');
 
-QUnit.module('csscdn');
+QUnit.module('cssabspath');
 
-var fixtures = __dirname + '/fixtures/csscdn';
+var fixtures = __dirname + '/fixtures/cssabspath';
 
 test('base', function() {
     var o = {

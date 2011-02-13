@@ -1,4 +1,4 @@
-QUnit.module('transport');
+QUnit.module('jstransport');
 
 test('correct transport wrapping', 2, function() {
     var context = {
