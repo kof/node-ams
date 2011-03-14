@@ -1,4 +1,4 @@
-var ams = require('../../index');
+var ams = require('ams');
 
 var publ = __dirname + '/public',
     src = __dirname + '/src',
