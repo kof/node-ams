@@ -39,6 +39,9 @@ in the client. You just write your commonjs modules same way like server side in
   - setting correct response headers
   - serving files
 
+## Installation
+	npm install ams
+
 ## API
 
 ### require ams
@@ -176,7 +179,4 @@ Write a success message to stdout, pass a message string optionally. Returns bui
 	    // stdout success message
 	    .end();
 
-
-## Installation
-	npm install ams
 	  
