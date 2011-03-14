@@ -45,9 +45,7 @@ in the client. You just write your commonjs modules same way like server side in
 	
 	var ams = require('ams');
 	
-### build tool
-
-#### ams.build.create(root)
+### ams.build.create(root)
 Create a build instance from passed root path. Returns build Instance.
 Instance properties are:
 
@@ -59,7 +57,7 @@ Instance properties are:
 Example:
 	var build = ams.build.create('/path/to/src');
 
-#### Build#find(options)
+### Build#find(options)
 Find files to be added to the build instance. Returns build Instance.
 
 Defaults are:
@@ -77,14 +75,14 @@ Example:
 	build.find();
 
 
-#### Build#add(path, [targetDir]);
+### Build#add(path, [targetDir]);
 Add one file from given path, optionally define the target dir. Returns build Instance.
 
 Example:
 
 	build.add('/path/to/file');
 
-#### Build#process(options)
+### Build#process(options)
 Run processors over files previously added to the build instance. Returns build Instance.
 
 Defaults are:
@@ -121,7 +119,7 @@ Example:
 		// `this` is reference to build instance
 	});
 
-#### Build#combine(options)
+### Build#combine(options)
 Combine all files of current build instance to one, of caurse without to mix css and js etc. Returns build Instance.
 
 Example:
@@ -130,20 +128,20 @@ Example:
 		css: 'main.css'
 	});
 
-#### Build#cleanup(dir)
+### Build#cleanup(dir)
 Remove all files and dirs from given dir. Returns build Instance.
 
 Example:
 	build.cleanup('/path/to/dir');
 
 
-#### Build.write(dir)
+### Build.write(dir)
 Write proccessed files to disk in passed dir. Returns build Instance.
 
 Example:
 	build.write('/path/to/public/dir');
 
-#### Build.end([message])
+### Build.end([message])
 Write a success message to stdout, pass a message string optionally. Returns build Instance.	
 
 
