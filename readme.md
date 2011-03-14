@@ -145,6 +145,38 @@ Example:
 Write a success message to stdout, pass a message string optionally. Returns build Instance.	
 
 
+### Example of complete build script:
+	var ams = require('ams');
+	
+	var publ = __dirname + '/public',
+	    src = __dirname + '/src',
+	    host = 'http://localhost:8888';
+	    
+	ams.build
+		// create a build for the dir
+	    .create(src)
+	    // find all files in it
+	    .find()
+	    // change processors options
+	    .process({
+	        cssabspath: {
+	            host: host
+	        },
+	        htmlabspath: {
+	            host: host
+	        },
+	        texttransport: false
+	    })
+	    // combine all js files
+	    .combine({
+	        js: 'main.js'
+	    })
+	    // write them to disk
+	    .write(publ)
+	    // stdout success message
+	    .end();
+
+
 ## Installation
 	npm install ams
 	  
