@@ -4,6 +4,7 @@ test('correct transport wrapping', function() {
     var context = {
             paths: ['/']
         };
+        
     equal(
         run.call(context, '/test/test.html', 'test'),
         ';define("test/test.html", function() {\nreturn "test";\n});\n',

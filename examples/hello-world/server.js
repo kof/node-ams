@@ -1,5 +1,5 @@
 var ams = require('../../index');
 
-ams.server.start({
+ams.server.create({
     root: __dirname + '/public'
-});
+}).listen(8888);
