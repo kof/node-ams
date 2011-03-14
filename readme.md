@@ -87,15 +87,15 @@ Run processors over files previously added to the build instance. Returns build 
 
 Defaults are:
     {
-        uglifyjs: true,
-        cssvendor: true,
-        cssdataimg: true,
-        cssimport: true,
-        cssabspath: true,
-        htmlabspath: true,
-        cssmin: true,
-        jstransport: true,
-        texttransport: true
+        uglifyjs: true, // minify javascript using uglifyjs
+        cssvendor: true, // add css vendor prefixes like -webkit, -moz etc.
+        cssdataimg: true, // inline small image using data:image base64 encoded data url
+        cssimport: true, // parse @import declarations and inline css files
+        cssabspath: true, // absolutize paths in css files
+        htmlabspath: true, // absolutize paths in html files
+        cssmin: true, // minify css using js port of yahoos compressor for css 
+        jstransport: true, // wrap javascript code in commonjs transport proposal, can be used with requirejs later
+        texttransport: true // wrap any data into js transport string, f.e. to load html templates using requirejs from cdn
     }
 
 You can turn off any processor, add your own or set any options for every processor.
