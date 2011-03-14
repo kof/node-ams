@@ -7,7 +7,7 @@ var publ = __dirname + '/public',
 // build all files except of require.js, because require shouldn't be wrapped into
 // transport string in our case
 ams.build
-    .build(src)
+    .create(src)
     .find({
         filter: /require\.js/
     })
@@ -28,7 +28,7 @@ ams.build
 
 
 ams.build
-    .build(src)
+    .create(src)
     .add(src + '/require.js')
     .process({
         // don't wrap into transport string

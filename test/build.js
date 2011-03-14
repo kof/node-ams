@@ -6,7 +6,7 @@ var n = require('natives'),
 QUnit.module('build');
 
 test('functional build test with all options enabled', function() {
-    build(fixtures)
+    create(fixtures)
         .find()
         .process()
         .combine()
