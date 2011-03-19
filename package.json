@@ -1,7 +1,7 @@
 {
     "name": "ams",
     "description": "ams - asset management system. It is a build tool and static server in one.",
-    "version": "0.0.6",
+    "version": "0.0.7",
     "repository": "git://github.com/kof/node-ams.git",
     "keywords": [ 
         "build", "tool", "static server", "minify", "minifier", "compressor", "processor", 

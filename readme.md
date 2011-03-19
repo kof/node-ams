@@ -79,7 +79,7 @@ Example:
 
 
 ### Build#add(path, [targetDir]);
-Add one file from given path, optionally define the target dir. Returns build Instance.
+Add file or files (array) from given path, optionally define the target dir. Returns build Instance.
 
 Example:
 
