@@ -84,6 +84,8 @@ Add file or files (array) from given path, optionally define the target dir. Ret
 Example:
 
 	build.add('/path/to/file');
+	// or
+	build.add(['/path/to/file1', '/path/to/file2']);
 
 ### Build#process(options)
 Run processors over files previously added to the build instance. Returns build Instance.
