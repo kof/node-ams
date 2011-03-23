@@ -2,19 +2,16 @@
     "name": "ams",
     "description": "ams - asset management system. It is a build tool and static server in one.",
     "version": "0.0.7",
+    "author": "Oleg Slobodskoi <oleg008@gmail.com>",
     "repository": "git://github.com/kof/node-ams.git",
     "keywords": [ 
         "build", "tool", "static server", "minify", "minifier", "compressor", "processor", 
         "base64", "cssmin", "uglifyjs", "vendor css", "amd", "transport", "dependencies manager" 
     ],
-    "author": "Oleg Slobodskoi <oleg008@gmail.com>",
-    "main": "index",
-    "directories": {
-        "lib": "lib"
-    },
     "engines": {
         "node": ">= 0.3.0"
     },
+    "bin": {},
     "dependencies": {
         "connect": ">= 0.5.6",
         "natives": ">= 0.0.5",
