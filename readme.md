@@ -32,12 +32,7 @@ in the client. You just write your commonjs modules same way like server side in
   - add host to background image paths and external css (@import), to load it from cdn
   - add your own preprocessor ...
 - combine 
-- write to disk 
-- serve (uses connect)
-  - caching (server and client)
-  - cache invalidation (server and client)
-  - setting correct response headers
-  - serving files
+- write to disk
 
 ## Installation
 	npm install ams

@@ -1,7 +1,7 @@
 {
     "name": "ams",
-    "description": "ams - asset management system. It is a build tool and static server in one.",
-    "version": "0.0.7",
+    "description": "ams - asset management system - plugin enabled build tool with jquery like API",
+    "version": "0.0.8",
     "author": "Oleg Slobodskoi <oleg008@gmail.com>",
     "repository": "git://github.com/kof/node-ams.git",
     "keywords": [ 
@@ -13,7 +13,6 @@
     },
     "bin": {},
     "dependencies": {
-        "connect": ">= 0.5.6",
         "natives": ">= 0.0.5",
         "sharedjs": ">= 0.0.2",
         "uglify-js": ">= 0.0.5"
