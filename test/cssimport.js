@@ -43,4 +43,12 @@ test('base', function() {
     res = run.call(context, path, n.fs.readFileSync(path, 'utf8'));
     equal(res, a + '\n' + a, '@import url(path)');
 
+    path = fixtures + '/h.css';
+    res = run.call(context, path, n.fs.readFileSync(path, 'utf8'));
+    equal(res, a, './path');
+
+    path = fixtures + '/i.css';
+    res = run.call(context, path, n.fs.readFileSync(path, 'utf8'));
+    equal(res, a + a, '2 imports in 1 line');
+    
 });
