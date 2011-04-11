@@ -19,15 +19,15 @@ test('.add', function() {
 
     build = create(fixtures);
     build.add(fixtures + '/1/a.js');
-    ok(build.data[fixtures + '/a.js'] != null, 'absolute path without targetDir');
-   
+    ok(build.data[fixtures + '/1/a.js'] != null, 'absolute path without targetDir');
+
     build = create(fixtures);
     build.add(fixtures + '/1/a.js', fixtures);
     ok(build.data[fixtures + '/a.js'] != null, 'absolute path with targetDir');
     
     build = create(fixtures);
     build.add([fixtures + '/1/a.js', fixtures + '/2/1/b.js']);
-    ok(build.data[fixtures + '/a.js'] != null && build.data[fixtures + '/b.js'] != null, 'array of paths');
+    ok(build.data[fixtures + '/1/a.js'] != null && build.data[fixtures + '/2/1/b.js'] != null, 'array of paths without targetDir');
 });
 
 

@@ -1,20 +1,13 @@
 ## About
-node-ams - asset management system for nodejs. The goal is to have a system for 
-dependencies management, preprocessing and serving static files which is 
-flexible, powerfull and scalable at the same time. 
-It is built for massive websites where dependencies management and performance in the 
-client are really important.
-
-Auto dependencies management means you don't have to configurate each file to be loaded
-in the client. You just write your commonjs modules same way like server side in nodejs.
+ams - asset management system for nodejs. The goal is to have a flexible and powerfull system for 
+dependencies management and preprocessing of static files.
 
 ## What is ams?
 
 - very flexible build tool
-- dependecies detector with purpose to combine files
+- dependecies detector with purpose to combine files (using @import for css and require('module') for javascript)
 - easy extendable preprocessing framework
-- enables you to write your js code for client at the same way like for the nodejs server
-- it is static file server
+- enables you to write your js code for client at the same way like for the nodejs server (commonjs modules)
 
 
 ## Features
