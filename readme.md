@@ -1,14 +1,12 @@
 ## About
-ams - asset management system for nodejs. The goal is to have a flexible and powerfull system for 
-dependencies management and preprocessing of static files.
+ams - asset management system for nodejs. The goal is to have a flexible and powerful system for dependency management and preprocessing of static files.
 
 ## What is ams?
 
 - very flexible build tool
-- dependecies detector with purpose to combine files (using @import for css and require('module') for javascript)
+- dependency detector to combine files (using @import for css and require('module') for javascript)
 - easy extendable preprocessing framework
-- enables you to write your js code for client at the same way like for the nodejs server (commonjs modules)
-
+- enables you to write your js code for the client in the same way as the nodejs server (commonjs modules)
 
 ## Features
 - Expressive API
@@ -28,6 +26,7 @@ dependencies management and preprocessing of static files.
 - write to disk
 
 ## Installation
+
 	npm install ams
 
 ## API
@@ -46,6 +45,7 @@ Instance properties are:
 - `this.data` - key/value hash of path/contents
 
 Example:
+
 	var build = ams.build.create('/path/to/src');
 
 ### Build#find(options)
@@ -65,7 +65,6 @@ Example:
 
 	build.find();
 
-
 ### Build#add(path, [targetDir]);
 Add file or files (array) from given path, optionally define the target dir. Returns build Instance.
 
@@ -79,10 +78,11 @@ Example:
 Run processors over files previously added to the build instance. Returns build Instance.
 
 Defaults are:
+
     {
         uglifyjs: true, // minify javascript using uglifyjs
         cssvendor: true, // add css vendor prefixes like -webkit, -moz etc.
-        cssdataimg: true, // inline small image using data:image base64 encoded data url
+        cssdataimg: true, // inline small images using data:image base64 encoded data url
         cssimport: true, // parse @import declarations and inline css files
         cssabspath: true, // absolutize paths in css files
         htmlabspath: true, // absolutize paths in html files
@@ -91,7 +91,7 @@ Defaults are:
         texttransport: true // wrap any data into js transport string, f.e. to load html templates using requirejs from cdn
     }
 
-You can turn off any processor, add your own or set any options for every processor.
+You can turn off any processor, add your own, or set any options for every processor.
 
 Example:
 
@@ -107,15 +107,16 @@ If options is a function, it will be called for each file and act like a custom 
 Example:
 
 	build.process(function(path, data) {
-		// `poth` is path to the file
+		// `path` is path to the file
 		// `data` is contents of the file
 		// `this` is reference to build instance
 	});
 
 ### Build#combine(options)
-Combine all files of current build instance to one, of caurse without to mix css and js etc. Returns build Instance.
+Combine all files of current build instance to one, of course without mixing css and js etc. Returns build Instance.
 
 Example:
+
 	build.combine({
 		js: 'main.js',
 		css: 'main.css'
@@ -125,20 +126,21 @@ Example:
 Remove all files and dirs from given dir. Returns build Instance.
 
 Example:
-	build.cleanup('/path/to/dir');
 
+	build.cleanup('/path/to/dir');
 
 ### Build.write(dir)
 Write proccessed files to disk in passed dir. Returns build Instance.
 
 Example:
+
 	build.write('/path/to/public/dir');
 
 ### Build.end([message])
 Write a success message to stdout, pass a message string optionally. Returns build Instance.	
 
-
 ### Example of complete build script:
+
 	var ams = require('ams');
 	
 	var publ = __dirname + '/public',
@@ -168,5 +170,3 @@ Write a success message to stdout, pass a message string optionally. Returns bui
 	    .write(publ)
 	    // stdout success message
 	    .end();
-
-	  
