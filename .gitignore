@@ -1,3 +1,4 @@
 .DS_Store
 test/tmp
 .c9settings.xml
+node_modules
