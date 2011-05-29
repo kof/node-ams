@@ -84,8 +84,10 @@ Defaults are:
         cssvendor: true, // add css vendor prefixes like -webkit, -moz etc.
         cssdataimg: true, // inline small images using data:image base64 encoded data url
         cssimport: true, // parse @import declarations and inline css files
-        cssabspath: true, // absolutize paths in css files
-        htmlabspath: true, // absolutize paths in html files
+        cssabspath: true, // absolutize paths in css files (relative to the root)
+        csshost: true, // add host to the path
+        htmlabspath: true, // absolutize paths in html files (relative to the root)
+        htmlhost: true, // add host to the path
         cssmin: true, // minify css using js port of yahoos compressor for css 
         jstransport: true, // wrap javascript code in commonjs transport proposal, can be used with requirejs later
         texttransport: true // wrap any data into js transport string, f.e. to load html templates using requirejs from cdn
@@ -97,7 +99,7 @@ Example:
 
 	build.process({
 		uglifyjs: false,
-		cssabspath: {
+		csshost: {
 			host: 'http://localhost:8888'
 		}
 	})
@@ -154,10 +156,10 @@ Write a success message to stdout, pass a message string optionally. Returns bui
 	    .find()
 	    // change processors options
 	    .process({
-	        cssabspath: {
+	        csshost: {
 	            host: host
 	        },
-	        htmlabspath: {
+	        htmlhost: {
 	            host: host
 	        },
 	        texttransport: false

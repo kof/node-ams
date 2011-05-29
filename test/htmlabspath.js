@@ -1,31 +1,41 @@
-var n = require('natives');
-
 QUnit.module('htmlabspath');
 
 var fixtures = __dirname + '/fixtures/htmlabspath';
 
-test('base', function() {
-    var o = {
-        host: 'http://nodejs.org'
-    };
-    
+function read(path) {
+    return require('fs').readFileSync(path, 'utf-8');
+}
+
+function runTest(o) {
     var context = {
         paths: [fixtures],
         root: fixtures
     };
     
-    var res, path;
+    var res, path, url = o.host + '/a.css';
 
     path = fixtures + '/a.html';
-    res = run.call(context, path, n.fs.readFileSync(path, 'utf8'), o);
+    res = run.call(context, path, read(path), o);
 
-    equal(res, '<link href="http://nodejs.org/a.css" rel="stylesheet" type="text/css"/>', 'relative path' );
+    equal(res, '<link href="'+url+'" rel="stylesheet" type="text/css"/>', 'relative path' );
     
     path = fixtures + '/b.html';
-    res = run.call(context, path, n.fs.readFileSync(path, 'utf8'), o);
-    equal(res, '<script type="text/javascript" src="http://nodejs.org/a.css"></script>', 'absolute path' );
+    res = run.call(context, path, read(path), o);
+    equal(res, '<script type="text/javascript" src="'+url+'"></script>', 'absolute path' );
 
     path = fixtures + '/c.html';
-    res = run.call(context, path, n.fs.readFileSync(path, 'utf8'), o);
-    equal(res, '<img src="http://nodejs.org/a.css" alt="image"/>', 'relative path using ./' );
+    res = run.call(context, path, read(path), o);
+    equal(res, '<img src="'+url+'" alt="image"/>', 'relative path using ./' );
+}
+
+test('with host', function() {
+    runTest({
+        host: 'http://nodejs.org'
+    });
+});
+
+test('without host', function() {
+    runTest({
+        host: ''
+    });
 });
