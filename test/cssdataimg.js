@@ -39,3 +39,24 @@ test('simple', function() {
     res = run.call(context, '/test.css', src, o);
     equal('a { background: url("http://ape.jpg") }', res, 'image is not encoded because its remote');   
 });
+
+
+test('only image urls', function() {
+    var context = {
+            root: fixtures,
+            data: {},
+            paths: []
+        },
+        o = {},
+        src, res;
+        
+    src = '@import url("/sample.css");';
+    res = run.call(context, '/test.css', src, o);
+    equal(src, res, '@import url() is not touched');    
+
+
+
+    src = '@font-face { src: url("/sample.css");}';
+    res = run.call(context, '/test.css', src, o);
+    equal(src, res, '@font-face url() is not touched');    
+})

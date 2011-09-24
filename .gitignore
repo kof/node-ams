@@ -2,3 +2,4 @@
 test/tmp
 .c9settings.xml
 node_modules
+npm-debug.log

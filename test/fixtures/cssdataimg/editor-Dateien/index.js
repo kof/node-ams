@@ -1,3 +1,0 @@
-;define("templates/0/index.html", function() {
-return "<link href=\"css/template.css\" rel=\"stylesheet\" type=\"text/css\"  /><link href='http://fonts.googleapis.com/css?family=Reenie+Beanie' rel='stylesheet' type='text/css'><link href='http://fonts.googleapis.com/css?family=Droid+Sans:regular,bold' rel='stylesheet' type='text/css'><link href='http://fonts.googleapis.com/css?family=Josefin+Sans:100,regular,bold' rel='stylesheet' type='text/css'><!--<div id=\"top\"><div id=\"nav-top\">        {{html navigation}} <div class=\"c\"></div></div></div>--><div id=\"mid\"><div id=\"wrapper\"><div id=\"content\">{{html content}}</div><div id=\"sidebar\">{{html sidebar}}</div></div><div class=\"c\"></div></div><div id=\"btm\"><div id=\"footer\"></div></div>";
-});
