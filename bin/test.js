@@ -25,11 +25,11 @@ qunit.run([
     {
         code: lib + '/processors/uglifyjs.js',
         tests: test + '/uglifyjs.js'
-    },    
+    },
     {
         code: lib + '/processors/jstransport.js',
         tests: test + '/jstransport.js'
-    },    
+    },
     {
         code: lib + '/processors/placeholder.js',
         tests: test + '/placeholder.js'
@@ -37,25 +37,25 @@ qunit.run([
     {
         code: lib + '/processors/cssmin.js',
         tests: test + '/cssmin.js'
-    },    
+    },
     {
-        code: lib + '/processors/cssdataimg.js',
-        tests: test + '/cssdataimg.js'
-    },    
+        code: lib + '/processors/dataimage.js',
+        tests: test + '/dataimage.js'
+    },
     {
         code: lib + '/processors/cssimport.js',
         tests: test + '/cssimport.js'
-    },    
+    },
     {
         code: lib + '/processors/cssabspath.js',
         tests: test + '/cssabspath.js'
-    },  
+    },
     {
         code: lib + '/processors/htmlabspath.js',
         tests: test + '/htmlabspath.js'
-    },  
+    },
     {
         code: lib + '/processors/texttransport.js',
         tests: test + '/texttransport.js'
-    },    
+    },
 ]);

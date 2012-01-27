@@ -22,7 +22,7 @@ ams - asset management system for nodejs. The goal is to have a flexible and pow
   - combine css files using @import declaration
   - add host to background image paths and external css (@import), to load it from cdn
   - add your own preprocessor ...
-- combine 
+- combine
 - write to disk
 
 ## Installation
@@ -32,16 +32,16 @@ ams - asset management system for nodejs. The goal is to have a flexible and pow
 ## API
 
 ### require ams
-	
+
 	var ams = require('ams');
-	
+
 ### ams.build.create(root)
 Create a build instance from passed root path. Returns build Instance.
 Instance properties are:
 
-- `this.root` - passed path to the src dir. 
-- `this.options` - current options object, contains all options for all methods. 
-- `this.paths` - like require.paths. 
+- `this.root` - passed path to the src dir.
+- `this.options` - current options object, contains all options for all methods.
+- `this.paths` - like require.paths.
 - `this.data` - key/value hash of path/contents
 
 Example:
@@ -54,7 +54,7 @@ Find files to be added to the build instance. Returns build Instance.
 Defaults are:
 
 	{
-        detect: null, // path to the file, where static 'require' dependencies tracking should start from, 
+        detect: null, // path to the file, where static 'require' dependencies tracking should start from,
         pattern: /\.[\w]+$/, // regexp to match files, is used if detect is not defined
         filter: null, // regexp to filter files, is used if detect is not defined
         rec: true, // recursive search, is used if detect is not defined
@@ -82,13 +82,13 @@ Defaults are:
     {
         uglifyjs: true, // minify javascript using uglifyjs
         cssvendor: true, // add css vendor prefixes like -webkit, -moz etc.
-        cssdataimg: true, // inline small images using data:image base64 encoded data url
+        dataimage: true, // inline small images using data:image base64 encoded data for css and html
         cssimport: true, // parse @import declarations and inline css files
         cssabspath: true, // absolutize paths in css files (relative to the root)
         csshost: true, // add host to the path
         htmlabspath: true, // absolutize paths in html files (relative to the root)
         htmlhost: true, // add host to the path
-        cssmin: true, // minify css using js port of yahoos compressor for css 
+        cssmin: true, // minify css using js port of yahoos compressor for css
         jstransport: true, // wrap javascript code in commonjs transport proposal, can be used with requirejs later
         texttransport: true // wrap any data into js transport string, f.e. to load html templates using requirejs from cdn
     }
@@ -139,16 +139,16 @@ Example:
 	build.write('/path/to/public/dir');
 
 ### Build.end([message])
-Write a success message to stdout, pass a message string optionally. Returns build Instance.	
+Write a success message to stdout, pass a message string optionally. Returns build Instance.
 
 ### Example of complete build script:
 
 	var ams = require('ams');
-	
+
 	var publ = __dirname + '/public',
 	    src = __dirname + '/src',
 	    host = 'http://localhost:8888';
-	    
+
 	ams.build
 		// create a build for the dir
 	    .create(src)
