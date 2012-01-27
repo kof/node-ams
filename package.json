@@ -1,12 +1,12 @@
 {
     "name": "ams",
     "description": "ams - asset management system - plugin enabled build tool with jquery like API",
-    "version": "0.0.12",
+    "version": "0.0.13",
     "author": "Oleg Slobodskoi <oleg008@gmail.com>",
     "repository": "git://github.com/kof/node-ams.git",
-    "keywords": [ 
-        "build", "tool", "static server", "minify", "minifier", "compressor", "processor", 
-        "base64", "cssmin", "uglifyjs", "vendor css", "amd", "transport", "dependencies manager" 
+    "keywords": [
+        "build", "tool", "static server", "minify", "minifier", "compressor", "processor",
+        "base64", "cssmin", "uglifyjs", "vendor css", "amd", "transport", "dependencies manager"
     ],
     "engines": {
         "node": ">= 0.3.0"
@@ -16,14 +16,14 @@
         "natives": ">= 0.0.5",
         "sharedjs": ">= 0.0.2",
         "uglify-js": ">= 0.0.5"
-    }, 
+    },
     "devDependencies": {
         "qunit": ">= 0.1.5"
-    },   
+    },
     "licenses": [
-        { 
+        {
             "type": "MIT",
             "url" : "http://www.opensource.org/licenses/mit-license.php"
         }
-    ]  
+    ]
 }
