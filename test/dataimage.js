@@ -10,33 +10,30 @@ test('simple', function() {
             data: {},
             paths: []
         },
-        o = {
-            maxSize: 32768
-        },
         src, res;
 
     src = 'a { background: url(/sample.png) }';
-    res = run.call(context, '/test.css', src, o);
+    res = run.call(context, '/test.css', src, options);
     equal('a { background: url("'+sampleEncoded+'") }', res, 'image is encoded');
 
     src = 'a { background: url("/sample.png") }';
-    res = run.call(context, '/test.css', src, o);
+    res = run.call(context, '/test.css', src, options);
     equal('a { background: url("'+sampleEncoded+'") }', res, 'url has double quotes');
 
     src = "a { background: url('/sample.png') }";
-    res = run.call(context, '/test.css', src, o);
+    res = run.call(context, '/test.css', src, options);
     equal('a { background: url("'+sampleEncoded+'") }', res, 'url has double quotes');
 
     src = "a { background: url ( '/sample.png' ) }";
-    res = run.call(context, '/test.css', src, o);
+    res = run.call(context, '/test.css', src, options);
     equal('a { background: url("'+sampleEncoded+'") }', res, 'a lot of spaces');
 
     src = 'a { background: url(/ape.jpg) }'
-    res = run.call(context, '/test.css', src, o);
+    res = run.call(context, '/test.css', src, options);
     equal('a { background: url("/ape.jpg") }', res, 'image is not encoded because its too large');
 
     src = 'a { background: url(http://ape.jpg) }'
-    res = run.call(context, '/test.css', src, o);
+    res = run.call(context, '/test.css', src, options);
     equal('a { background: url("http://ape.jpg") }', res, 'image is not encoded because its remote');
 });
 
@@ -46,17 +43,16 @@ test('only image urls', function() {
             data: {},
             paths: []
         },
-        o = {},
         src, res;
 
     src = '@import url("/sampleEncoded.css");';
-    res = run.call(context, '/test.css', src, o);
+    res = run.call(context, '/test.css', src, options);
     equal(src, res, '@import url() is not touched');
 
 
 
     src = '@font-face { src: url("/sampleEncoded.css");}';
-    res = run.call(context, '/test.css', src, o);
+    res = run.call(context, '/test.css', src, options);
     equal(src, res, '@font-face url() is not touched');
 });
 
@@ -66,16 +62,15 @@ test('img tag', function() {
             data: {},
             paths: []
         },
-        o = {},
         src, res;
 
     src = '<img src="/sample.png"/>';
-    res = run.call(context, '/test.html', src, o);
+    res = run.call(context, '/test.html', src, options);
     equal('<img src="'+ sampleEncoded +'"/>', res, 'src is image data in double quotes');
 
 
     src = "<img src='/sample.png'/>";
-    res = run.call(context, '/test.html', src, o);
+    res = run.call(context, '/test.html', src, options);
     equal("<img src='"+ sampleEncoded +"'/>", res, 'src is image data in single quotes');
 
 });
