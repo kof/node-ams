@@ -85,9 +85,7 @@ Defaults are:
         dataimage: true, // inline small images using data:image base64 encoded data for css and html
         cssimport: true, // parse @import declarations and inline css files
         cssabspath: true, // absolutize paths in css files (relative to the root)
-        csshost: true, // add host to the path
         htmlabspath: true, // absolutize paths in html files (relative to the root)
-        htmlhost: true, // add host to the path
         cssmin: true, // minify css using js port of yahoos compressor for css
         jstransport: true, // wrap javascript code in commonjs transport proposal, can be used with requirejs later
         texttransport: true // wrap any data into js transport string, f.e. to load html templates using requirejs from cdn
@@ -99,7 +97,7 @@ Example:
 
 	build.process({
 		uglifyjs: false,
-		csshost: {
+		cssabspath: {
 			host: 'http://localhost:8888'
 		}
 	})
@@ -156,10 +154,10 @@ Write a success message to stdout, pass a message string optionally. Returns bui
 	    .find()
 	    // change processors options
 	    .process({
-	        csshost: {
+	        cssabspath: {
 	            host: host
 	        },
-	        htmlhost: {
+	        htmlabspath: {
 	            host: host
 	        },
 	        texttransport: false
