@@ -1,0 +1,1 @@
+@import 'a.css?query=123' all;@import 'a.css#hash' all;

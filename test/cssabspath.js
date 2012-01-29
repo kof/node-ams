@@ -2,17 +2,17 @@ QUnit.module('cssabspath');
 
 var fixtures = __dirname + '/fixtures/cssabspath';
 
+var context = {
+        paths: [fixtures],
+        root: fixtures
+    };
+
 function read(path) {
     return require('fs').readFileSync(path, 'utf8')
 }
 
 function runTests(o) {
-    var context = {
-        paths: [fixtures],
-        root: fixtures
-    };
-    
-    var res, path, 
+    var res, path,
         url = o.host + '/a.png';
 
     path = fixtures + '/a.css';
@@ -35,7 +35,6 @@ function runTests(o) {
 
     path = fixtures + '/e.css';
     res = run.call(context, path, read(path), o);
-    equal(res, '@import "'+url+'" all;@import "'+url+'" all;', '@import ""' );    
 }
 
 test('without host', function() {
@@ -48,3 +47,12 @@ test('with host', function() {
     });
 });
 
+test('url with query or hash', function() {
+    var res, path,
+        o = {host: ''},
+        url = o.host + '/a.png';
+
+    path = fixtures + '/f.css';
+    res = run.call(context, path, read(path), o);
+    equal(res, '@import "/a.css?query=123" all;@import "/a.css#hash" all;', 'url with query and hash' );
+});
