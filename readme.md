@@ -98,7 +98,8 @@ Example:
 	build.process({
 		uglifyjs: false,
 		cssabspath: {
-			host: 'http://localhost:8888'
+			host: 'http://localhost:8888',
+            verbose: true
 		}
 	})
 
@@ -155,12 +156,17 @@ Write a success message to stdout, pass a message string optionally. Returns bui
 	    // change processors options
 	    .process({
 	        cssabspath: {
-	            host: host
+	            host: host,
+                verbose: true
 	        },
 	        htmlabspath: {
-	            host: host
+	            host: host,
+                verbose: true
 	        },
-	        texttransport: false
+	        texttransport: false,
+            uglifyjs: {
+                verbose: true
+            }
 	    })
 	    // combine all js files
 	    .combine({
