@@ -1,7 +1,7 @@
 {
     "name": "ams",
     "description": "ams - asset management system - plugin enabled build tool with jquery like API",
-    "version": "0.0.20",
+    "version": "0.0.21",
     "author": "Oleg Slobodskoi <oleg008@gmail.com>",
     "repository": "git://github.com/kof/node-ams.git",
     "keywords": [
@@ -9,13 +9,13 @@
         "base64", "cssmin", "uglifyjs", "vendor css", "amd", "transport", "dependencies manager"
     ],
     "engines": {
-        "node": ">= 0.3.0"
+        "node": "0.6.x"
     },
     "bin": {},
     "dependencies": {
         "natives": ">= 0.0.5",
         "sharedjs": ">= 0.0.2",
-        "uglify-js": ">= 0.0.5"
+        "uglify-js": "1.2.x"
     },
     "devDependencies": {
         "qunit": ">= 0.1.5"
