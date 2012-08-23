@@ -1,3 +1,4 @@
+[![build status](https://secure.travis-ci.org/kof/node-ams.png)](http://travis-ci.org/kof/node-ams)
 ## About
 ams - asset management system for nodejs. The goal is to have a flexible and powerful system for dependency management and preprocessing of static files.
 
