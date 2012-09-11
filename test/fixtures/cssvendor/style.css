@@ -1,0 +1,10 @@
+a {
+    box-shadow: #000 5px 3px 5px;
+    font-size: 12px
+}
+a {
+    animation-name: spinner;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}

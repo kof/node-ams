@@ -1,22 +1,16 @@
-QUnit.module('vendorcss');
+QUnit.module('cssvendor');
 
-var inspect = require('util').inspect;
+
+var fs = require('fs');
+
+var fix = __dirname + '/fixtures/cssvendor',
+    origin = fs.readFileSync(fix + '/style.css', 'utf-8'),
+    prefixed = fs.readFileSync(fix + '/style-prefixed.css', 'utf-8');
 
 test('replace', function() {
-    
-    var ocss = 'a { box-shadow: #000 5px 3px 5px; font-size: 12px}';
-    
-    expcss = 'a {\
-                box-shadow: #000 5px 3px 5px;\
-                -moz-box-shadow: #000 5px 3px 5px;\
-                -webkit-box-shadow: #000 5px 3px 5px;\
-                -o-box-shadow: #000 5px 3px 5px;\
-                -ms-box-shadow: #000 5px 3px 5px;\
-                font-size: 12px;\
-              }'.replace(/\s/g, '');
     equal(
-        run('/test/test.css', ocss).replace(/\s*/g, ''),
-        expcss,
-        'vendor css are replaced'  
+        run(null, origin).replace(/\s*/g, ''),
+        prefixed.replace(/\s/g, ''),
+        'vendor css are replaced'
     );
 });
