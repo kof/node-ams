@@ -8,19 +8,19 @@ var tmp = __dirname + '/tmp';
 
 test('findSync', function() {
 
-   same( findSync(fixtures), [fixtures + '/a', fixtures + '/a.js', fixtures + '/b.js'], 'no regexp no rec');
-   
-   same( 
-       findSync(fixtures, /\.js$/), 
-       [fixtures + '/a.js', fixtures + '/b.js'], 
+   deepEqual( findSync(fixtures), [fixtures + '/a', fixtures + '/a.js', fixtures + '/b.js'], 'no regexp no rec');
+
+   deepEqual(
+       findSync(fixtures, /\.js$/),
+       [fixtures + '/a.js', fixtures + '/b.js'],
        'regexp for js files only, no rec'
    );
-   
-   same( 
-       findSync(fixtures, /\.js$/, true), 
-       [fixtures + '/a/c.js', fixtures + '/a.js', fixtures + '/b.js'], 
+
+   deepEqual(
+       findSync(fixtures, /\.js$/, true),
+       [fixtures + '/a/c.js', fixtures + '/a.js', fixtures + '/b.js'],
        'regexp for js files only, recursively'
-   );    
+   );
 });
 
 test('mkdirSync', function() {
@@ -50,19 +50,19 @@ test('rmSync', function(){
 
 test('resolvePath', function(){
     var res;
-    
-    res = resolvePath('/a.js', null, fixtures);    
+
+    res = resolvePath('/a.js', null, fixtures);
     equal(res, fixtures + '/a.js', 'abs path');
-    
-    res = resolvePath('./b.js', fixtures + '/a.js');    
+
+    res = resolvePath('./b.js', fixtures + '/a.js');
     equal(res, fixtures + '/b.js', 'relative path');
-    
-    res = resolvePath('../a.js', fixtures+'/a/c.js');    
+
+    res = resolvePath('../a.js', fixtures+'/a/c.js');
     equal(res, fixtures + '/a.js', 'relative path');
-    
-    res = resolvePath('a.js', null, null, [fixtures]);    
+
+    res = resolvePath('a.js', null, null, [fixtures]);
     equal(res, fixtures + '/a.js', 'path from lookup array');
 
-    res = resolvePath('http://nodejs.org/a.js');    
+    res = resolvePath('http://nodejs.org/a.js');
     equal(res, false, 'remote url cant be resolved');
 });

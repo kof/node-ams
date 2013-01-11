@@ -4,45 +4,45 @@ var join = require('path').join;
 var root = join(__dirname, 'fixtures', 'deps');
 
 test('require parser', 7, function() {
-    same( parse('require("test")'), ["test"], "double quots" );
-    same( parse("require('test')"), ["test"], "single quots" );
-    same( parse(" require ( 'test' ) "), ["test"], "with spaces" );
-    same( parse("require('test/test-test')"), ["test/test-test"], "with special chars" );
-    same( 
+    deepEqual( parse('require("test")'), ["test"], "double quots" );
+    deepEqual( parse("require('test')"), ["test"], "single quots" );
+    deepEqual( parse(" require ( 'test' ) "), ["test"], "with spaces" );
+    deepEqual( parse("require('test/test-test')"), ["test/test-test"], "with special chars" );
+    deepEqual(
         parse("require('test');function test() { test() } require(\"test1\")"),
         ["test", "test1"],
-        "more real live code" 
+        "more real live code"
     );
-    same( parse('require(test);require("fui")'), ["fui"], "take only if a string was passed" );
-    same( parse('require("fui")', true), {'fui': true}, "return hash" );
+    deepEqual( parse('require(test);require("fui")'), ["fui"], "take only if a string was passed" );
+    deepEqual( parse('require("fui")', true), {'fui': true}, "return hash" );
 });
 
 test('find dependencies', function() {
-    same(
+    deepEqual(
         find(root+'/1/a.js'),
         [root + '/1/a.js', root + '/1/b.js'],
         'deps test 1, required files without any path prefix'
     );
 
-    same(
+    deepEqual(
         find(root+'/2/a.js'),
         [root + '/2/a.js', root + '/2/b.js'],
         'deps test 2, path contains ./'
     );
 
-    same(
+    deepEqual(
         find(root+'/3/b.js'),
         [root + '/3/b.js', root + '/3/1/a.js'],
         'deps test 3, b->a'
     );
-    
-    same(
+
+    deepEqual(
         find(root+'/3/1/a.js'),
         [root + '/3/1/a.js', root + '/3/b.js'],
         'deps test 4, a->b'
     );
-    
-    same(
+
+    deepEqual(
         find(root+'/4/c.js'),
         [root + '/4/c.js', root + '/4/1/a.js', root + '/4/b.js'],
         'deps test 4, c->a->b'
@@ -50,7 +50,7 @@ test('find dependencies', function() {
 });
 
 test('add paths', function() {
-    same(
+    deepEqual(
         find(root+'/paths/b/b.js', [root+'/paths/a']),
         [root+'/paths/b/b.js', root+'/paths/a/a.js'],
         'using paths array, b->a'
