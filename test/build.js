@@ -9,7 +9,8 @@ test('functional build test with all options enabled', function() {
         .find()
         .process()
         .combine()
-        .write(tmp);
+        .write(tmp)
+        .end();
 
     ok(true, 'functional test worked');
 });
@@ -24,7 +25,7 @@ test('.add', function() {
     build = create(fixtures);
     build.add(fixtures + '/1/a.js', fixtures);
     ok(build.data[fixtures + '/a.js'] != null, 'absolute path with targetDir');
-    
+
     build = create(fixtures);
     build.add([fixtures + '/1/a.js', fixtures + '/2/1/b.js']);
     ok(build.data[fixtures + '/1/a.js'] != null && build.data[fixtures + '/2/1/b.js'] != null, 'array of paths without targetDir');
