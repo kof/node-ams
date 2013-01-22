@@ -3,7 +3,7 @@ var qunit = require('qunit'),
     test = join(__dirname, '..', 'test'),
     lib = join(__dirname, '..', 'lib');
 
-qunit.options.log = {globalSummary: true, errors: true};
+qunit.options.log = {globalSummary: true, errors: true /*, assertions: true*/};
 
 qunit.run([
     {
@@ -57,5 +57,5 @@ qunit.run([
     {
         code: lib + '/processors/texttransport.js',
         tests: test + '/texttransport.js'
-    },
+    }
 ]);

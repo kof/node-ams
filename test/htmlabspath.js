@@ -37,6 +37,20 @@ test('with host', function() {
     });
 });
 
+test('different hosts', function() {
+    var res,
+        path = fixtures + '/a.html',
+        o;
+
+    o = {host: 'http://nodejs.org/bla'};
+    res = run.call(context, path, '<link rel="stylesheet" href="a.css" type="text/css"/>', o);
+    equal(res, '<link rel="stylesheet" href="http://nodejs.org/bla/a.css" type="text/css"/>', 'host contains a path' );
+
+    o = {host: 'http://nodejs.org/bla?a=b'};
+    res = run.call(context, path, '<link rel="stylesheet" href="a.css" type="text/css"/>', o);
+    equal(res, '<link rel="stylesheet" href="http://nodejs.org/bla/a.css?a=b" type="text/css"/>', 'host contains a path and a query' );
+});
+
 test('without host', function() {
     runTest({
         host: ''
@@ -56,5 +70,4 @@ test('url with query or hash', function() {
     res = run.call(context, path, '<img src="/a.css#hash=true" alt="image"/>', o);
     url = o.host + '/a.css#hash=true'
     equal(res, '<img src="'+url+'" alt="image"/>', 'absolute path with hash' );
-
 });
