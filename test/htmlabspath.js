@@ -81,4 +81,9 @@ test('unresolvable url', function() {
     res = run.call(context, path, '<img src="/bla/blubb"/>', o);
     url = o.host + '/a.css?query=true'
     equal(res, '<img src="'+ ( o.host + '/bla/blubb') +'"/>', 'absolute path');
+
+    o = {host: 'http://nodejs.org/some/path'};
+    res = run.call(context, path, '<img src="http://bla/blubb"/>', o);
+    url = o.host + '/a.css?query=true'
+    equal(res, '<img src="http://bla/blubb"/>', 'absolute url');
 });
