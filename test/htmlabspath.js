@@ -71,3 +71,14 @@ test('url with query or hash', function() {
     url = o.host + '/a.css#hash=true'
     equal(res, '<img src="'+url+'" alt="image"/>', 'absolute path with hash' );
 });
+
+test('unresolvable url', function() {
+    var res,
+        path = fixtures + '/a.html',
+        url,
+        o = {host: 'http://nodejs.org'};
+
+    res = run.call(context, path, '<img src="/bla/blubb"/>', o);
+    url = o.host + '/a.css?query=true'
+    equal(res, '<img src="'+ ( o.host + '/bla/blubb') +'"/>', 'absolute path');
+});
