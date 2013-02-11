@@ -1,5 +1,5 @@
 ## About
-ams - asset management system for nodejs. The goal is to have a flexible and powerful system for dependency management and preprocessing of static files.
+AMS - asset management system for nodejs. The goal is to have a flexible and powerful system for dependency management and preprocessing of static files.
 
 ## What is ams?
 

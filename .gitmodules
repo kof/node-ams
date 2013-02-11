@@ -1,3 +1,0 @@
-[submodule "deps/yuicompressor"]
-	path = deps/yuicompressor
-	url = https://github.com/stoyan/yuicompressor.git
