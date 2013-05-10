@@ -1,7 +1,7 @@
 {
     "name": "ams",
     "description": "ams - asset management system - plugin enabled build tool with jquery like API",
-    "version": "0.2.0",
+    "version": "0.2.1",
     "author": "Oleg Slobodskoi <oleg008@gmail.com>",
     "repository": "git://github.com/kof/node-ams.git",
     "keywords": [
@@ -16,7 +16,7 @@
         "natives": "0.0.x",
         "sharedjs": "0.0.x",
         "uglify-js": "1.2.x",
-        "clean-css": "0.10.0"
+        "clean-css": "1.0.2"
     },
     "devDependencies": {
         "qunit": "0.5.x"
