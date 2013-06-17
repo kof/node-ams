@@ -9,8 +9,9 @@
         "base64", "cssmin", "uglifyjs", "vendor css", "amd", "transport", "dependencies manager"
     ],
     "engines": {
-        "node": "0.6.x"
+        "node": ">=0.6.0 < 0.11.0"
     },
+    "engineStrict": true,
     "bin": {},
     "dependencies": {
         "natives": "0.0.x",
